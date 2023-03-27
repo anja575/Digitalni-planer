@@ -8,16 +8,12 @@ $("#delete").click(function () {
   request.done(function (response, textStatus, jqXHR) {
     if (response === "Success") {
       checked.closest("tr").remove();
-      console.log("Stavka je obrisana");
-      alert("Stavka je obrisana");
-    } else {
-      console.log("Stavka nije obrisana");
-      alert("Stavka nije obrisana");
-    }
+    } 
   });
 });
 
 function addItem(id){
+  event.preventDefault();
   itemname = $("input[name='name']").val();
   itemloc = $("input[name='location']").val();
   itemdate= $("input[name='date']").val();
@@ -28,6 +24,9 @@ function addItem(id){
     data: {id: id, name: itemname, location: itemloc, date: itemdate},
     success: function(response) {
        alert("Uspešno dodata stavka!");
+       $("input[name='name']").val('');
+       $("input[name='location']").val('');
+       $("input[name='date']").val('');
     },
     error: function(xhr, status, error) {
         console.error(xhr);
@@ -37,6 +36,7 @@ function addItem(id){
 }
 
 function updateUser(id) {
+  event.preventDefault();
   usrname = $("input[name='username']").val();
   usrpass = $("input[name='password']").val();
   usremail = $("input[name='email']").val();
