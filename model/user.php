@@ -41,33 +41,17 @@ class User{
         return $conn->query($query);
     }
 
-    public static function updateUserName($usrid, $usrname, mysqli $conn)
-    {
-        $query = "UPDATE user SET username='$usrname' WHERE id='$usrid'";
-
-        return $conn->query($query);
-    }
-
-    public static function updateUserPass($usrid, $usrpass, mysqli $conn)
-    {
-        $query = "UPDATE user SET password='$usrpass' WHERE id='$usrid'";
-
-        return $conn->query($query);
-    }
-
-    public static function updateUserEmail($usrid, $usremail, mysqli $conn)
-    {
-        $query = "UPDATE user SET email='$usremail' WHERE id='$usrid'";
-
-        return $conn->query($query);
-    }
-
     public static function getUserByName($usrname, mysqli $conn) 
     {
         $query = "SELECT * FROM user WHERE username = '$usrname'";
         return $conn->query($query);
     }
-
+    public static function updateUser($usrid, $usrname, $usrpass, $usremail, mysqli $conn)
+    {
+     $query = "UPDATE user SET username='$usrname', password='$usrpass', email='$usremail' WHERE id='$usrid'";
+ 
+     return $conn->query($query);
+    }
 
 
 
