@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
 
     $answer = User::getUserByName($usrname, $conn);
     if ($answer->num_rows == 1) {
-        echo 'Ovo ime već postoji!';
+        echo 'Neuspešno. Ovo ime već postoji!';
     } else {
         $result = User::createUser($usremail, $usrname, $usrpass, $conn);
     }
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Digitalni planer</title>
+    <title>Napravi nalog</title>
 </head>
 <body class="container">
 

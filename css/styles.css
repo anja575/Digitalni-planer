@@ -34,7 +34,6 @@ body {
   background: var(--green);
 }
 
-
 .logout-button {
   background: var(--red);
 }
@@ -74,7 +73,6 @@ input {
 }
 
 /* Login Page*/
-
 .login-form {
   padding: 40px 0;
 }

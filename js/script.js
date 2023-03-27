@@ -1,4 +1,3 @@
-
 $("#delete").click(function () {
   const checked = $("input[type=radio]:checked");
   request = $.ajax({
@@ -16,8 +15,6 @@ $("#delete").click(function () {
   });
 });
 
-
-
 function updateUser(id) {
   usrname = $("input[name='username']").val();
   usrpass = $("input[name='password']").val();
@@ -28,7 +25,7 @@ function updateUser(id) {
       type: "POST",
       data: {id: id, name: usrname, pass: usrpass, email: usremail},
       success: function(response) {
-         alert("User je uspešno izmenjen!");
+         alert("Podaci su uspešno izmenjeni!");
       },
       error: function(xhr, status, error) {
           console.error(xhr);
@@ -53,7 +50,6 @@ function sortTableByDate() {
     }
   }
 }
-
 
 function search() {
 

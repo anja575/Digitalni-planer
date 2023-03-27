@@ -8,7 +8,7 @@ public $name;
 public $location;
 public $date;
 
-public function __construct($id=null,$userid=null,$name=null,$location=null,$date=null)
+public function __construct($id=null, $userid=null, $name=null, $location=null, $date=null)
 {
 $this->id=$id;
 $this->userid=$userid;
@@ -22,7 +22,7 @@ public static function getItems(mysqli $conn, $id){
     return $conn->query($query);
 }
 
-public static function createItem($usrid,$itemname,$itemlocation, $itemdate, mysqli $conn)
+public static function createItem($usrid, $itemname, $itemlocation, $itemdate, mysqli $conn)
 {
     $query = "INSERT INTO item(userid, name, location, date) 
     VALUES('$usrid', '$itemname', '$itemlocation', '$itemdate')";
@@ -42,6 +42,5 @@ public static function deleteItem($itemid, mysqli $conn)
 }
 
 }
-
 
 ?>

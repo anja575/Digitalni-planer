@@ -7,7 +7,7 @@ class User{
     public $password;
     public $email;
 
-    public function __construct($id=null,$username=null,$password=null,$email=null)
+    public function __construct($id=null, $username=null, $password=null, $email=null)
     {
         $this->id = $id;
         $this->username = $username;
@@ -22,7 +22,7 @@ class User{
         return $conn->query($query);
     }
 
-    public static function createUser($usremail,$usrname,$usrpass,mysqli $conn)
+    public static function createUser($usremail, $usrname, $usrpass, mysqli $conn)
     {
         $query = "INSERT INTO user(email, username, password) 
         VALUES('$usremail', '$usrname', '$usrpass')";
@@ -46,6 +46,7 @@ class User{
         $query = "SELECT * FROM user WHERE username = '$usrname'";
         return $conn->query($query);
     }
+
     public static function updateUser($usrid, $usrname, $usrpass, $usremail, mysqli $conn)
     {
      $query = "UPDATE user SET username='$usrname', password='$usrpass', email='$usremail' WHERE id='$usrid'";
@@ -53,12 +54,6 @@ class User{
      return $conn->query($query);
     }
 
-
-
-
 }
-
-
-
 
 ?>

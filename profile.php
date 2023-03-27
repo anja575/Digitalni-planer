@@ -13,12 +13,6 @@ $id = $_SESSION['usrid'];
 $user = User::getUserById($id, $conn);
 $row = $user->fetch_array();
 
-if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-    exit();
-}
-
 if (isset($_POST['back'])) {
     header('Location:home.php');
     exit();
@@ -34,7 +28,8 @@ if (isset($_POST['back'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Document</title>
+    <link rel="icon" href="img/logo.png" />
+    <title>Moj profil</title>
     <script src="https://code.jquery.com/jquery-3.6.4.js"
             integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 

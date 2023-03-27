@@ -29,7 +29,8 @@ if (isset($_POST['usrname']) && isset($_POST['usrpass'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Digitalni planer</title>
+    <link rel="icon" href="img/logo.png" />
+    <title>Prijavi se</title>
 </head>
 <body class="container">
 <form method="POST" action="#" class="login-form">
