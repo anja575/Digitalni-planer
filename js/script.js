@@ -2,18 +2,39 @@ $("#delete").click(function () {
   const checked = $("input[type=radio]:checked");
   request = $.ajax({
     url: "delete.php",
-    type: "post",
+    type: "POST",
     data: { id: checked.val() },
   });
   request.done(function (response, textStatus, jqXHR) {
     if (response === "Success") {
       checked.closest("tr").remove();
+      console.log("Stavka je obrisana");
+      alert("Stavka je obrisana");
     } else {
-      console.log("Stavka nije obrisana " + response);
+      console.log("Stavka nije obrisana");
       alert("Stavka nije obrisana");
     }
   });
 });
+
+function addItem(id){
+  itemname = $("input[name='name']").val();
+  itemloc = $("input[name='location']").val();
+  itemdate= $("input[name='date']").val();
+  
+  $.ajax({
+    url: "addItem.php",
+    type: "POST",
+    data: {id: id, name: itemname, location: itemloc, date: itemdate},
+    success: function(response) {
+       alert("Uspešno dodata stavka!");
+    },
+    error: function(xhr, status, error) {
+        console.error(xhr);
+    }
+});
+
+}
 
 function updateUser(id) {
   usrname = $("input[name='username']").val();
@@ -52,7 +73,6 @@ function sortTableByDate() {
 }
 
 function search() {
-
   var input, filter, table, tr, i, td1, td2, txtValue1, txtValue2;
   input = document.getElementById("input");
   filter = input.value.toUpperCase();

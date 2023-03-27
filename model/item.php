@@ -26,13 +26,8 @@ public static function createItem($usrid, $itemname, $itemlocation, $itemdate, m
 {
     $query = "INSERT INTO item(userid, name, location, date) 
     VALUES('$usrid', '$itemname', '$itemlocation', '$itemdate')";
-
-    if (mysqli_query($conn, $query)) {
-        echo 'Stavka je uneta';
-        header('Location: add.php');
-    } else {
-        echo 'Error: ' . mysqli_error($conn);
-    }
+   
+    return $conn->query($query);
 }
 
 public static function deleteItem($itemid, mysqli $conn) 

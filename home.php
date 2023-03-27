@@ -34,7 +34,6 @@ if (isset($_POST['update'])) {
     header('Location: profile.php');
 }
 
-
 ?>
 
 
@@ -104,7 +103,7 @@ if (isset($_POST['update'])) {
 
 <div class="action-buttons">
     <button onclick="sortTableByDate()">Sortiraj</button>
-    <button id="delete" class="logout-button">Izbriši</button>
+    <button id="delete" class="logout-button"> - Izbriši stavku</button>
 </div>
 
 <h3>Pretraga</h3>

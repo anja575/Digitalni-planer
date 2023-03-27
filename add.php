@@ -9,21 +9,8 @@ if (!isset($_SESSION['id'])) {
     exit();
 }
 $id = $_SESSION['id'];
-
-
-if (isset($_POST['add'])) {
-    $name = $_POST['name'];
-    $location = $_POST['location'];
-    $date = $_POST['date'];
-    $result = Item::createItem($id, $name, $location, $date, $conn);
-
-}
-
-if (isset($_POST['back'])) {
-    header('Location:home.php');
-    exit();
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,31 +18,37 @@ if (isset($_POST['back'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Document</title>
+    <link rel="icon" href="img/logo.png" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <title>Dodaj stavku</title>
 </head>
 <body class="container">
 
-<form action="" method="POST">
     <div class="input-row">
         <label for="name">Naziv</label>
-        <input type="text" name="name" required>
+        <input name="name" type="text" required>
     </div>
 
     <div class="input-row">
         <label for="location">Lokacija</label>
-        <input type="text" name="location" required>
+        <input name="location" type="text" required>
     </div>
 
     <div class="input-row">
         <label for="date">Datum i vreme</label>
-        <input type="datetime-local" name="date" required>
+        <input name="date" type="datetime-local" required>
     </div>
+
 
     <div class="add-form-buttons">
         <a class="button-styles" href="home.php"> ⇤ Početna strana</a>
-        <button type="submit" name="add"> + Dodaj stavku</button>
+    <form action="" method="POST">
+        <button onclick="addItem(<?php echo $id?>)"> 
+            + Dodaj stavku
+        </button>
+    </form>
     </div>
-</form>
+
 
 <script src="js/script.js"></script>
 </body>
