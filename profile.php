@@ -13,11 +13,6 @@ $id = $_SESSION['usrid'];
 $user = User::getUserById($id, $conn);
 $row = $user->fetch_array();
 
-if (isset($_POST['back'])) {
-    header('Location:home.php');
-    exit();
-}
-
 ?>
 
 
@@ -38,7 +33,7 @@ if (isset($_POST['back'])) {
 
 <div class="input-row">
     <label for="username">Username</label>
-    <input name="username" type="text" value=<?php echo $row["username"]; ?>>
+    <input name="username" type="text" value=<?php echo $row["username"]; ?> >
 </div>
 
 <div class="input-row">
@@ -51,14 +46,13 @@ if (isset($_POST['back'])) {
     <input name="email" type="text" value=<?php echo $row["email"]; ?>>
 </div>
 
-
-<form action="" method="POST" class="profile-form-button">
-    <button type="submit" name="back"> ⇤ Početna strana</button>
-
+<div class="profile-form-button">
+    <a class="button-styles" href="home.php"> ⇤ Početna strana</a>
     <button onclick="updateUser(<?php echo $row['id'] ?>) ">
         Sačuvaj promene
     </button>
-</form>
+</div>
+
 
 <script src="js/script.js"></script>
 </body>

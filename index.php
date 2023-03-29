@@ -11,7 +11,7 @@
 <body>
 <main>
     <div class="intro-page-wrapper">
-       <img src="img/home.png" alt="Opis slike">
+       <img src="img/home.png" alt="Digitalni planer">
         <a href="login.php" class="button-styles">Prijavi se</a>
         <a href="create.php" class="button-styles">Napravi nalog</a>
     </div>

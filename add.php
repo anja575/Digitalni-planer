@@ -42,11 +42,9 @@ $id = $_SESSION['id'];
 
     <div class="add-form-buttons">
         <a class="button-styles" href="home.php"> ⇤ Početna strana</a>
-    <form action="" method="POST">
         <button onclick="addItem(<?php echo $id?>)"> 
             + Dodaj stavku
         </button>
-    </form>
     </div>
 
 

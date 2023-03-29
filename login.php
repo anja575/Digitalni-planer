@@ -2,7 +2,6 @@
 
 require "dbBroker.php";
 require "model/user.php";
-require "model/item.php";
 
 session_start();
 if (isset($_POST['usrname']) && isset($_POST['usrpass'])) {
@@ -17,7 +16,7 @@ if (isset($_POST['usrname']) && isset($_POST['usrpass'])) {
         header('Location: home.php');
         exit();
     } else {
-        echo 'Neuspešno logovanje';
+        echo 'Neuspešno logovanje!';
     }
 }
 
