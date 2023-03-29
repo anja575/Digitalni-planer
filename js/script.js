@@ -17,7 +17,12 @@ function addItem(id){
   itemname = $("input[name='name']").val();
   itemloc = $("input[name='location']").val();
   itemdate= $("input[name='date']").val();
-  
+  if (itemname.trim() === '' || itemloc.trim() === '' || itemdate.trim() === '') {
+    alert("Morate popuniti sva polja!");
+    return; 
+  }
+
+
   $.ajax({
     url: "addItem.php",
     type: "POST",
@@ -40,7 +45,21 @@ function updateUser(id) {
   usrname = $("input[name='username']").val();
   usrpass = $("input[name='password']").val();
   usremail = $("input[name='email']").val();
+  if (usrname.trim() === '' || usrpass.trim() === '' || usremail.trim() === '') {
+    alert("Morate popuniti sva polja!");
+    return; 
+  }
 
+  $.ajax({
+    type: "POST",
+    url: "check.php",
+    data: {
+      name: usrname
+    },
+    success: function(response) {
+    if (response === "Failed") {
+      alert("Korisničko ime već postoji u bazi podataka!");
+    } else {
   $.ajax({
       url: "updateUser.php",
       type: "POST",
@@ -51,7 +70,7 @@ function updateUser(id) {
       error: function(xhr, status, error) {
           console.error(xhr);
       }
-  });
+  }); }}});
 }
 
 function sortTableByDate() {
